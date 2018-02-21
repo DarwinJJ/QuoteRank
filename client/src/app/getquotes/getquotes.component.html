@@ -1,0 +1,21 @@
+<div>
+    <p><a [routerLink]="['/home']">Home</a>
+      <a [routerLink]="['/newquote', id]">Add a quote</a></p>
+    <div *ngIf="quotes.length !=0" class='showQuotes'>
+      <p>Quote by {{ name }} </p>
+      <div class='header'>
+        <p class='quote inline'> Quote </p>
+        <p class='vote inline'> Votes </p>
+        <p class='col3 inline'>Actions available</p>
+      </div>
+      <div *ngFor="let quote of quotes" class='row'>
+        <p class='quote inline'>"{{ quote.text }}"</p>
+        <p class='vote inline'>{{ quote.votes }} </p>
+        <p class='col3 inline'>  
+          <button class='inline btn' (click)='voteUp($event)' value="{{ quote.text }}" class='btn'>Vote Up</button>
+          <button class='inline btn' (click)='voteDown($event)' value="{{ quote.text }}" class='btn'>Vote Down</button>
+          <button class='inline btn' (click)='deleteQuote($event)' value="{{ quote.text }}" name='text'>Delete</button>
+        </p>
+      </div>
+    </div>
+</div>

@@ -1,0 +1,14 @@
+<div>
+    <p><a [routerLink]="['/home']">Home</a></p>
+    <div class='main'>
+      <p>Provide a quote by {{ name }} : </p>
+      <p> A quote must be at least three characters! </p>
+      <div class='displ'>
+        <form (submit)="createQuote()">
+          <p class=''> Quote Text: <input type='text' name="newQuote.text" [(ngModel)]="newQuote.text"></p>
+          <input type='submit' class='btn inline' [routerLink]="['/getquotes', id]" value='Cancel' />
+          <input type='submit' class='btn inline' value='Submit' />
+        </form> 
+      </div>
+    </div>
+  </div>
